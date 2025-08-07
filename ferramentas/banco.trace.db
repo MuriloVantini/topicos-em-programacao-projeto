@@ -1,0 +1,92 @@
+2025-05-16 22:48:54.615017-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CASA" not found (this database is empty); SQL statement:
+INSERT INTO casa (codigo, nome) VALUES (1, 'Casa Amarela'), INSERT INTO casa (codigo, nome) VALUES (2, 'Casa Roxa')  [42104-232]
+2025-05-16 22:52:17.896664-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+CREATE TABLE IF NOT EXISTS casa (codigo INT PRIMARY KEY, nome VARCHAR(255) NOT NULL) [90002-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.command.Prepared.query(Prepared.java:250)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:222)
+	at org.h2.command.Command.executeQuery(Command.java:196)
+	at org.h2.jdbc.JdbcPreparedStatement.executeQuery(JdbcPreparedStatement.java:130)
+	at testeexportarcomgradlew.dao.CasaDao.createTableCasa(CasaDao.java:25)
+	at testeexportarcomgradlew.App.main(App.java:35)
+2025-05-16 22:53:26.055645-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO casa (codigo, nome) VALUES (1, 'Casa Amarela'), INSERT [*]INTO casa (codigo, nome) VALUES (2, 'Casa Roxa') "; SQL statement:
+INSERT INTO casa (codigo, nome) VALUES (1, 'Casa Amarela'), INSERT INTO casa (codigo, nome) VALUES (2, 'Casa Roxa')  [42000-232]
+2025-05-16 22:55:03.739463-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+INSERT INTO casa (codigo, nome) VALUES (1, 'Casa Amarela') [90002-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.command.Prepared.query(Prepared.java:250)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:222)
+	at org.h2.command.Command.executeQuery(Command.java:196)
+	at org.h2.jdbc.JdbcPreparedStatement.executeQuery(JdbcPreparedStatement.java:130)
+	at testeexportarcomgradlew.dao.CasaDao.insertCasa(CasaDao.java:46)
+	at testeexportarcomgradlew.App.main(App.java:37)
+2025-05-17 16:02:53.442206-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO casa (codigo, nome) VALUES (?, ?) [*]ON CONFLICT (codigo) DO NOTHING"; SQL statement:
+INSERT INTO casa (codigo, nome) VALUES (?, ?) ON CONFLICT (codigo) DO NOTHING [42000-232]
+2025-05-17 16:03:20.965045-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO casa (codigo, nome) VALUES (?, ?) [*]ON CONFLICT (codigo) DO NOTHING"; SQL statement:
+INSERT INTO casa (codigo, nome) VALUES (?, ?) ON CONFLICT (codigo) DO NOTHING [42000-232]
+2025-05-17 16:03:49.738715-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO casa (codigo, nome) VALUES (?, ?) [*]ON CONFLICT (codigo) DO NOTHING"; SQL statement:
+INSERT INTO casa (codigo, nome) VALUES (?, ?) ON CONFLICT (codigo) DO NOTHING [42000-232]
+2025-05-17 16:05:52.239655-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO casa (codigo, nome) VALUES (?, ?) [*]SELECT ?, ? WHERE NOT EXISTS (SELECT 1 FROM casa WHERE codigo = ?)"; SQL statement:
+INSERT INTO casa (codigo, nome) VALUES (?, ?) SELECT ?, ? WHERE NOT EXISTS (SELECT 1 FROM casa WHERE codigo = ?) [42000-232]
+2025-05-17 16:05:57.069132-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO casa (codigo, nome) VALUES (?, ?) [*]SELECT ?, ? WHERE NOT EXISTS (SELECT 1 FROM casa WHERE codigo = ?)"; SQL statement:
+INSERT INTO casa (codigo, nome) VALUES (?, ?) SELECT ?, ? WHERE NOT EXISTS (SELECT 1 FROM casa WHERE codigo = ?) [42000-232]
+2025-05-17 16:06:20.768816-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Parameter "#3" is not set; SQL statement:
+INSERT INTO casa (codigo, nome)SELECT ?, ? WHERE NOT EXISTS (SELECT 1 FROM casa WHERE codigo = ?) [90012-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:658)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.Parameter.checkSet(Parameter.java:97)
+	at org.h2.command.Prepared.checkParameters(Prepared.java:201)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:129)
+	at org.h2.command.Command.executeUpdate(Command.java:304)
+	at org.h2.command.Command.executeUpdate(Command.java:248)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:213)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:172)
+	at testeexportarcomgradlew.dao.CasaDao.insertCasa(CasaDao.java:53)
+	at testeexportarcomgradlew.App.main(App.java:37)
+2025-06-07 23:33:48.869129-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "condominio_id" not found [42122-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3518)
+	at org.h2.jdbc.JdbcResultSet.getInt(JdbcResultSet.java:337)
+	at testeexportarcomgradlew.dao.CasaDao.getCasa(CasaDao.java:70)
+	at testeexportarcomgradlew.dao.CasaDao.insertCasa(CasaDao.java:84)
+	at testeexportarcomgradlew.service.RelacionamentoService.executarTestesDeRelacionamento(RelacionamentoService.java:43)
+	at testeexportarcomgradlew.App.main(App.java:37)
+2025-06-08 00:31:45.802644-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS morador (codigo INT PRIMARY KEY, nome VARCHAR(255) NOT NULL, casa_id INT, condominio_id INT, FOREIGN KEY (casa_id) REFERENCES casa(codigo))[*]FOREIGN KEY (condominio_id) REFERENCES condominio(codigo))"; SQL statement:
+CREATE TABLE IF NOT EXISTS morador (codigo INT PRIMARY KEY, nome VARCHAR(255) NOT NULL, casa_id INT, condominio_id INT, FOREIGN KEY (casa_id) REFERENCES casa(codigo))FOREIGN KEY (condominio_id) REFERENCES condominio(codigo)) [42000-232]
+2025-06-08 00:33:59.761717-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS morador (codigo INT PRIMARY KEY, nome VARCHAR(255) NOT NULL, casa_id INT, condominio_id INT, FOREIGN KEY (casa_id) REFERENCES casa(codigo))[*]FOREIGN KEY (condominio_id) REFERENCES condominio(codigo))"; SQL statement:
+CREATE TABLE IF NOT EXISTS morador (codigo INT PRIMARY KEY, nome VARCHAR(255) NOT NULL, casa_id INT, condominio_id INT, FOREIGN KEY (casa_id) REFERENCES casa(codigo))FOREIGN KEY (condominio_id) REFERENCES condominio(codigo)) [42000-232]
+2025-06-08 00:35:05.501884-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS morador (codigo INT PRIMARY KEY, nome VARCHAR(255) NOT NULL, casa_id INT, condominio_id INT, FOREIGN KEY (casa_id) REFERENCES casa(codigo))[*],FOREIGN KEY (condominio_id) REFERENCES condominio(codigo))"; SQL statement:
+CREATE TABLE IF NOT EXISTS morador (codigo INT PRIMARY KEY, nome VARCHAR(255) NOT NULL, casa_id INT, condominio_id INT, FOREIGN KEY (casa_id) REFERENCES casa(codigo)),FOREIGN KEY (condominio_id) REFERENCES condominio(codigo)) [42000-232]
+2025-06-08 18:03:54.739298-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CONDOMINIO" not found (this database is empty); SQL statement:
+SELECT * FROM condominio WHERE codigo = ? [42104-232]
+2025-06-08 18:05:27.227044-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CONDOMINIO" not found; SQL statement:
+CREATE TABLE IF NOT EXISTS casa (codigo INT PRIMARY KEY, nome VARCHAR(255) NOT NULL, condominio_id INT, FOREIGN KEY (condominio_id) REFERENCES condominio(codigo)) [42102-232]

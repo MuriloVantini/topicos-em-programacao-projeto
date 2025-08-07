@@ -1,0 +1,31 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "testeexportarcomgradlew.App",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "Launch App (Gradle)",
+            "request": "launch",
+            "mainClass": "testeexportarcomgradlew.App",
+            "projectName": "testeExportarComGradlew",
+            "classPaths": [
+                "${workspaceFolder}\\build\\classes\\java\\main",
+                "${workspaceFolder}\\.gradle\\caches\\modules-2\\files-2.1\\com.h2database\\h2\\2.3.232\\**\\*.jar"
+            ],
+            "args": "",
+            "vmArgs": ""
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        }
+    ]
+}
