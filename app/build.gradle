@@ -8,6 +8,10 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+    // Plugin Shadow para gerar um fat JAR com todas as dependências
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+    // Plugin para empacotar como WAR (para WildFly)
+    id 'war'
 }
 
 repositories {
@@ -25,6 +29,9 @@ dependencies {
 
     // This dependency is used by the application.
     implementation libs.guava
+
+    // Jakarta EE API (for JAX-RS), provida pelo WildFly em runtime
+    compileOnly 'jakarta.platform:jakarta.jakartaee-api:10.0.0'
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
@@ -43,3 +50,14 @@ tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
+
+// Gera o fat JAR como artefato principal de publicação
+tasks.named('shadowJar') {
+    // classifier 'all' é padrão; manter para previsibilidade
+}
+
+// Facilita: quando fizer "gradle build", também gerar o shadowJar
+tasks.named('build') {
+    dependsOn tasks.named('shadowJar')
+}
+

@@ -1,0 +1,20 @@
+services:
+  # Aplicação Java simples (CLI)
+  app:
+    build: .  # Diz ao Compose para construir a imagem usando o Dockerfile no diretório atual.
+    # Como é uma aplicação CLI, não precisamos expor portas
+    # ports:
+    #   - "8080:8080" 
+    volumes:
+      - ./ferramentas:/app/ferramentas # persiste o banco H2
+    stdin_open: true  # Permite entrada interativa se necessário
+    tty: true         # Aloca um terminal para a aplicação
+
+  # Servidor WildFly com WAR mínimo (Hello REST)
+  wildfly:
+    build:
+      context: .
+      dockerfile: Dockerfile.wildfly
+    ports:
+      - "8080:8080"   # HTTP
+      - "9990:9990"   # Management

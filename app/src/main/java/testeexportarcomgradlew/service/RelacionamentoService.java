@@ -22,24 +22,45 @@ public class RelacionamentoService {
         this.condominioDao = new CondominioDao(connection);
         this.moradorDao = new MoradorDao(connection);
 
-        // this.moradorDao.dropTable();
-        // this.casaDao.dropTable();
-        // this.condominioDao.dropTable();
-
-        // this.condominioDao.createTable();
-        // this.casaDao.createTable();
-        // this.moradorDao.createTable();
+        // Garante que as tabelas existam
+        this.condominioDao.createTable();
+        this.casaDao.createTable();
+        this.moradorDao.createTable();
     }
 
     public void executarTestesDeRelacionamento() throws SQLException {
+        // Busca ou cria um condomínio padrão (id=1)
         Condominio condominio = condominioDao.getById(1);
+        if (condominio == null) {
+            condominio = new Condominio();
+            condominio.setCodigo(1);
+            condominio.setNome("Condomínio A");
+            condominioDao.insert(condominio);
+        }
 
+        // Busca ou cria uma casa padrão (id=1)
         Casa casa = casaDao.getById(1);
+        if (casa == null) {
+            casa = new Casa();
+            casa.setCodigo(1);
+            casa.setNome("Casa 1");
+            casa.setCondominio(condominio);
+            casaDao.insert(casa);
+        }
         casa.setNome("Casa Azul");
         casa.setCondominio(condominio);
         casaDao.update(casa);
 
+        // Busca ou cria um morador padrão (id=1)
         Morador morador = moradorDao.getById(1);
+        if (morador == null) {
+            morador = new Morador();
+            morador.setCodigo(1);
+            morador.setNome("Morador 1");
+            morador.setCondominio(condominio);
+            morador.setCasa(casa);
+            moradorDao.insert(morador);
+        }
         morador.setNome("João Silva");
         morador.setCondominio(condominio);
         morador.setCasa(casa);

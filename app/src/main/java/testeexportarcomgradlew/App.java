@@ -25,6 +25,9 @@ public class App {
 		try {
 			connection = ConexaoBanco.getConnection();
 
+			// Log informativo do banco H2 utilizado
+			System.out.println("[INFO] H2 JDBC URL: " + ConexaoBanco.getJdbcUrl());
+
 			CondominioService condominioService = new CondominioService(connection);
 			CasaService casaService = new CasaService(connection);
 			MoradorService moradorService = new MoradorService(connection);

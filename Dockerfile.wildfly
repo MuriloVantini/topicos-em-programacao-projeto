@@ -1,0 +1,26 @@
+# --- Stage 1: Build WAR with Gradle ---
+FROM eclipse-temurin:21-jdk-jammy as builder
+
+WORKDIR /build
+
+# Copy Gradle wrapper and settings
+COPY gradle/ gradle/
+COPY gradlew settings.gradle ./
+RUN chmod +x gradlew
+
+# Warmup dependencies for app module
+COPY app/build.gradle ./app/
+RUN ./gradlew app:dependencies --no-daemon
+
+# Copy sources and build WAR
+COPY app/src ./app/src
+RUN ./gradlew app:war -x test --no-daemon
+
+# --- Stage 2: WildFly runtime ---
+FROM quay.io/wildfly/wildfly:latest
+
+# Deploy WAR into WildFly
+COPY --from=builder /build/app/build/libs/*.war /opt/jboss/wildfly/standalone/deployments/app.war
+
+# Management (9990) and HTTP (8080) are exposed by the base image
+# ENV JBOSS_HOME=/opt/jboss/wildfly
