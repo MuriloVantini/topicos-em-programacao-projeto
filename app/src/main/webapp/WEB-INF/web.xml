@@ -6,18 +6,7 @@
 
   <display-name>app</display-name>
 
-  <!-- Configuration from User's Project -->
-  <servlet>
-    <servlet-name>Fema</servlet-name>
-    <servlet-class>servlet.api.Fema</servlet-class>
-  </servlet>
-
-  <servlet-mapping>
-    <servlet-name>Fema</servlet-name>
-    <url-pattern>/Fema</url-pattern>
-  </servlet-mapping>
-
-  <!-- Configuration from Professor's Project (JSF) -->
+  <!-- JSF Configuration -->
   <servlet>
     <servlet-name>Faces Servlet</servlet-name>
     <servlet-class>jakarta.faces.webapp.FacesServlet</servlet-class>
