@@ -21,7 +21,7 @@ public class ReinoControlador implements Serializable {
 	
 	public String prepararTelaConsulta() {
 		ReinoDao reinoDao = new ReinoDao();
-		reinos = reinoDao.pesquisar();
+		this.reinos = reinoDao.pesquisar();
 		return "consultarreino.xhtml";
 	}
 	
