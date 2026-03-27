@@ -3,4 +3,7 @@
 
 # Ignore Gradle build output directory
 build
-.vscode/
+.vscode
+
+# Gradle distribution ZIP (usado no build Docker, não commitar)
+gradle-8.8-bin.zip

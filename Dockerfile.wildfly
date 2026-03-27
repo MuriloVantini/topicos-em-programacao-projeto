@@ -1,7 +1,10 @@
 # --- Stage 1: Build WAR with Gradle ---
-FROM eclipse-temurin:21-jdk-jammy as builder
+FROM eclipse-temurin:21-jdk-jammy AS builder
 
 WORKDIR /build
+
+# Copy local Gradle distribution (evita download durante o build)
+COPY gradle-8.8-bin.zip /gradle-dist/gradle-8.8-bin.zip
 
 # Copy Gradle wrapper and settings
 COPY gradle/ gradle/
