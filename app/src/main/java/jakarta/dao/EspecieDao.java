@@ -9,7 +9,11 @@ public class EspecieDao {
 
 	private static List<Especie> especies = new ArrayList<Especie>();
 
-	public void gravar(Especie esp) {
+	public boolean existe(Especie esp) {
+		return especies.contains(esp);
+	}
+
+	public void cadastrar(Especie esp) {
 		especies.add(esp);
 	}
 

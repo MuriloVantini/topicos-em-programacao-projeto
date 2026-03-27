@@ -9,7 +9,20 @@ public class ReinoDao {
 
 	private static List<Reino> reinos = new ArrayList<Reino>();
 
-	public void gravar(Reino r) {
+	public boolean existe(Reino r) {
+		return reinos.contains(r);
+	}
+
+	public Reino getReino(Integer id) {
+		for (Reino r : reinos) {
+			if (r.getId().equals(id)) {
+				return r;
+			}
+		}
+		return null;
+	}
+
+	public void cadastrar(Reino r) {
 		reinos.add(r);
 	}
 

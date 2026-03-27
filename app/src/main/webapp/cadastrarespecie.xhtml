@@ -2,27 +2,35 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
-	<title>Cadastro de Reino</title>
+	<title>Cadastro de Especie</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </h:head>
 <h:body>
 	<h:form id="formulario">
-		<h:outputLabel value="Cadastro de Reino"></h:outputLabel>
+		<h:outputLabel value="Cadastro de Especie"></h:outputLabel>
 		<h:messages globalOnly="true"></h:messages>
 		<br></br>
 		<br></br>
 		<h:outputLabel value="ID"></h:outputLabel>
 		<br></br>
-		<h:inputText id="id" value="#{reinoControlador.novoReino.id}" required="true" requiredMessage="Id deve ser informado"></h:inputText>
+		<h:inputText id="id" value="#{especieControlador.novaEspecie.id}" required="true" requiredMessage="Id deve ser informado"></h:inputText>
 		<h:message for="id"></h:message>
 		<br></br>
 		<h:outputLabel value="Nome"></h:outputLabel>
 		<br></br>
-		<h:inputText id="nome" value="#{reinoControlador.novoReino.nome}" required="true" requiredMessage="O nome deve ser informado"></h:inputText>
+		<h:inputText id="nome" value="#{especieControlador.novaEspecie.nome}" required="true" requiredMessage="O nome deve ser informado"></h:inputText>
 		<h:message for="nome"></h:message>
 		<br></br>
 		<br></br>
-		<h:commandButton value="Gravar" action="#{reinoControlador.gravar()}">
+		<h:outputLabel value="Familia"></h:outputLabel>
+		<br></br>
+		<h:selectOneMenu value="#{especieControlador.idSelecionadoFamilia}">
+			<f:selectItems value="#{especieControlador.familias}" var="f" 
+				itemLabel="#{f.nome}" itemValue="#{f.id}"></f:selectItems>
+		</h:selectOneMenu>
+		<br></br>
+		<br></br>
+		<h:commandButton value="Gravar" action="#{especieControlador.gravar()}">
 			</h:commandButton>	
 		<br></br>
 		<br></br>

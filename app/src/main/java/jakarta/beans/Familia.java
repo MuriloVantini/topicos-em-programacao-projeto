@@ -8,6 +8,8 @@ public class Familia {
 	
 	private String nome;
 
+	private Reino reino;
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -23,6 +25,14 @@ public class Familia {
 			return false;
 		Familia other = (Familia) obj;
 		return Objects.equals(id, other.id);
+	}
+
+	public Reino getReino() {
+		return reino;
+	}
+
+	public void setReino(Reino reino) {
+		this.reino = reino;
 	}
 
 	public Integer getId() {

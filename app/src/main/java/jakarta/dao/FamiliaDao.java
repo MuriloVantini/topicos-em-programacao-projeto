@@ -9,7 +9,11 @@ public class FamiliaDao {
 
 	private static List<Familia> familias = new ArrayList<Familia>();
 
-	public void gravar(Familia f) {
+	public boolean existe(Familia f) {
+		return familias.contains(f);
+	}
+
+	public void cadastrar(Familia f) {
 		familias.add(f);
 	}
 

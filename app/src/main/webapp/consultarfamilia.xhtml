@@ -2,41 +2,47 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
-	<title>Consulta de Reinos</title>
+	<title>Consulta de Familias</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </h:head>
 <h:body>
 	<h:form>
-		<h:outputLabel value="Consulta de Reinos">
+		<h:outputLabel value="Consulta de Familias">
 			</h:outputLabel>
 		<br></br>
 		<br></br>
-		<h:dataTable border="1" value="#{reinoControlador.reinos}" var="r">
+		<h:dataTable border="1" value="#{familiaControlador.familias}" var="f">
 			<h:column id="column1">
 				<f:facet name="header">
 					<h:outputText value="Codigo"></h:outputText>
 				</f:facet>
-				<h:outputText value="#{r.id}"></h:outputText>
+				<h:outputText value="#{f.id}"></h:outputText>
 			</h:column>
 			<h:column id="column2">
 				<f:facet name="header">
 					<h:outputText value="Nome"></h:outputText>
 				</f:facet>
-				<h:outputText value="#{r.nome}"></h:outputText>
+				<h:outputText value="#{f.nome}"></h:outputText>
 			</h:column>
 			<h:column id="column3">
+				<f:facet name="header">
+					<h:outputText value="Reino"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{f.reino.nome}"></h:outputText>
+			</h:column>
+			<h:column id="column4">
 				<f:facet name="header">
 					<h:outputText value="Excluir"></h:outputText>
 				</f:facet>
 				<h:commandButton value="Excluir" 
-					action="#{reinoControlador.excluir(r)}"
+					action="#{familiaControlador.excluir(f)}"
 					onclick="return confirm('Deseja excluir?')">
 				</h:commandButton>
 			</h:column>
 		</h:dataTable>
 		<br></br>
 		<h:commandButton value="Voltar" 
-			action="#{reinoControlador.voltar()}">
+			action="#{familiaControlador.voltar()}">
 			</h:commandButton>
 	</h:form>		
 </h:body>

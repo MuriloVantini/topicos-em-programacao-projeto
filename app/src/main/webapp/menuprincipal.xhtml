@@ -2,33 +2,48 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
-	<title>Cadastro de modalidade</title>
+	<title>Menu Principal</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </h:head>
 <h:body>
 	<h:form>
 		<h:messages layout="table"></h:messages>
-		<h:outputLabel value="Paises"></h:outputLabel>
+
+		<h:outputLabel value="Reinos"></h:outputLabel>
 		<br></br>
 		<br></br>
-		<h:commandButton value="Cadastrar" action="#{paisControlador.prepararTelaCadastro()}">
+		<h:commandButton value="Cadastrar" action="#{reinoControlador.prepararTelaCadastro()}">
 			</h:commandButton>	
 		<br></br>	
 		<br></br>	
 		<h:commandButton value="Pesquisar" 
-			action="#{paisControlador.prepararTelaConsulta()}">
+			action="#{reinoControlador.prepararTelaConsulta()}">
 			</h:commandButton>	
 		<br></br>	
 		<br></br>
-		<h:outputLabel value="Estados"></h:outputLabel>
+
+		<h:outputLabel value="Familias"></h:outputLabel>
 		<br></br>
 		<br></br>
-		<h:commandButton value="Cadastrar" action="#{estadoControlador.prepararTelaCadastro()}">
+		<h:commandButton value="Cadastrar" action="#{familiaControlador.prepararTelaCadastro()}">
 			</h:commandButton>	
 		<br></br>	
 		<br></br>	
 		<h:commandButton value="Pesquisar" 
-			action="#{estadoControlador.prepararTelaConsulta()}">
+			action="#{familiaControlador.prepararTelaConsulta()}">
+			</h:commandButton>	
+		<br></br>	
+		<br></br>
+
+		<h:outputLabel value="Especies"></h:outputLabel>
+		<br></br>
+		<br></br>
+		<h:commandButton value="Cadastrar" action="#{especieControlador.prepararTelaCadastro()}">
+			</h:commandButton>	
+		<br></br>	
+		<br></br>	
+		<h:commandButton value="Pesquisar" 
+			action="#{especieControlador.prepararTelaConsulta()}">
 			</h:commandButton>	
 	</h:form>		
 </h:body>

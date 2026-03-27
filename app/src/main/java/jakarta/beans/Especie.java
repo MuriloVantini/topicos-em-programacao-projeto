@@ -8,6 +8,8 @@ public class Especie {
 	
 	private String nome;
 
+	private Familia familia;
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -23,6 +25,14 @@ public class Especie {
 			return false;
 		Especie other = (Especie) obj;
 		return Objects.equals(id, other.id);
+	}
+
+	public Familia getFamilia() {
+		return familia;
+	}
+
+	public void setFamilia(Familia familia) {
+		this.familia = familia;
 	}
 
 	public Integer getId() {
