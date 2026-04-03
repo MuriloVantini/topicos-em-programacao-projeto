@@ -7,11 +7,12 @@
 </h:head>
 <h:body>
 	<h:form>
-		<h:outputLabel value="Consulta de Reinos" rendered="#{reinoControlador.exibirTitulo}">
+		<h:outputLabel value="Consulta de Reinos">
 			</h:outputLabel>
 		<br></br>
 		<br></br>
-		<h:dataTable border="1" value="#{reinoControlador.reinos}" var="r">
+		<h:outputText value="NÃO HÁ DADOS CADASTRADOS" rendered="#{empty reinoControlador.reinos}"></h:outputText>
+		<h:dataTable border="1" value="#{reinoControlador.reinos}" var="r" rendered="#{not empty reinoControlador.reinos}">
 			<h:column id="column1">
 				<f:facet name="header">
 					<h:outputText value="Codigo"></h:outputText>

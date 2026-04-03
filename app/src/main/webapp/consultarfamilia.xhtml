@@ -11,7 +11,8 @@
 			</h:outputLabel>
 		<br></br>
 		<br></br>
-		<h:dataTable border="1" value="#{familiaControlador.familias}" var="f">
+		<h:outputText value="NÃO HÁ DADOS CADASTRADOS" rendered="#{empty familiaControlador.familias}"></h:outputText>
+		<h:dataTable border="1" value="#{familiaControlador.familias}" var="f" rendered="#{not empty familiaControlador.familias}">
 			<h:column id="column1">
 				<f:facet name="header">
 					<h:outputText value="Codigo"></h:outputText>
