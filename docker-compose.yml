@@ -4,6 +4,18 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.wildfly
+    develop:
+      watch:
+        - action: rebuild
+          path: app/src
+        - action: rebuild
+          path: app/build.gradle
+        - action: rebuild
+          path: settings.gradle
+        - action: rebuild
+          path: gradle/wrapper/gradle-wrapper.properties
+        - action: rebuild
+          path: Dockerfile.wildfly
     ports:
       - "8080:8080"   # HTTP
       - "9990:9990"   # Management

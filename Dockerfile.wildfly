@@ -9,6 +9,7 @@ COPY gradle-8.8-bin.zip /gradle-dist/gradle-8.8-bin.zip
 # Copy Gradle wrapper and settings
 COPY gradle/ gradle/
 COPY gradlew settings.gradle ./
+RUN sed -i 's#distributionUrl=.*#distributionUrl=file\\:///gradle-dist/gradle-8.8-bin.zip#' gradle/wrapper/gradle-wrapper.properties
 RUN chmod +x gradlew
 
 # Warmup dependencies for app module

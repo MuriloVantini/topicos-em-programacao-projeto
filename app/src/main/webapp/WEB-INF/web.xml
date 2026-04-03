@@ -7,6 +7,11 @@
 
 	<display-name>Teste</display-name>
 
+	<context-param>
+		<param-name>jakarta.faces.STATE_SAVING_METHOD</param-name>
+		<param-value>client</param-value>
+	</context-param>
+
 	<welcome-file-list>
 		<welcome-file>menumodalidade.xhtml</welcome-file>
 	</welcome-file-list>
