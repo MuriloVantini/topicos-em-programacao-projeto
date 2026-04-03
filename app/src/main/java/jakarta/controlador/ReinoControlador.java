@@ -70,6 +70,10 @@ public class ReinoControlador implements Serializable {
 		return reinos;
 	}
 
+	public boolean getExibirTitulo() {
+		return reinos != null && !reinos.isEmpty();
+	}
+
 	public void setReinos(List<Reino> reinos) {
 		this.reinos = reinos;
 	}
